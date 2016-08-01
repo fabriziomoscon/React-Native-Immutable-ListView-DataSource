@@ -2,6 +2,12 @@
   "name": "react-native-immutable-listview-datasource",
   "version": "1.1.0",
   "description": "React Native Immutable ListView DataSource",
+  "keywords": [
+    "react-component",
+    "react-native",
+    "ios",
+    "android"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +17,17 @@
     "email" : "dale@dalejefferson.com",
     "url" : "https://www.dalejefferson.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/DaleJefferson/React-Native-Immutable-ListView-DataSource",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DaleJefferson/React-Native-Immutable-ListView-DataSource.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DaleJefferson/React-Native-Immutable-ListView-DataSource/issues"
+  },
+  "peerDependencies": {
+    "react-native": "^0.30.0",
+    "react": "^15.2.1"
+  }
 }
