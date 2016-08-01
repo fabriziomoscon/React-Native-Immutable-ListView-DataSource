@@ -98,4 +98,4 @@ export default class CountiesByPopulation extends Component {
 }
 ```
 
-Read my article about this package https://medium.com/@dalejefferson/react-native-immutable-listview-example-78662fa64a15#.y5mbugs7g
+Read my article about this package https://medium.com/@dalejefferson/react-native-immutablejs-listview-datasource-part-2-cf072df71c8#.ak3wgcnp6
