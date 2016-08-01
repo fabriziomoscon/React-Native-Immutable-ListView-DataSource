@@ -9,7 +9,17 @@ If you are using ImmutableJS in your app and don't want to convert back toJS.
 npm install --save react-native-immutable-listview-datasource
 ```
 
-## Use
+## Usage
+
+```
+const ds = new ImmutableDataSource()
+
+this.state = {
+    dataSource: ds.cloneWithRows(rows)
+}
+```
+
+## Full example
 
 ```
 /* @flow */
