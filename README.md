@@ -9,16 +9,6 @@ If you are using ImmutableJS in your app and don't want to convert back toJS.
 npm install --save react-native-immutable-listview-datasource
 ```
 
-## Usage
-
-```
-const ds = new ImmutableDataSource()
-
-this.state = {
-    dataSource: ds.cloneWithRows(rows)
-}
-```
-
 ## Full example
 
 ```
@@ -29,14 +19,13 @@ import React, {Component} from 'react'
 import {
     AppRegistry,
     StyleSheet,
-    ListView,
     Text,
     View
 } from 'react-native'
 
 import immutable from 'immutable'
 
-import ImmutableDataSource from 'react-native-immutable-listview-datasource'
+import MyListView from 'react-native-immutable-listview-datasource'
 
 const styles = StyleSheet.create({
     list: {
@@ -79,33 +68,40 @@ const renderRow = (rowData) => (
         population={rowData.get('population')} />
 )
 
-export default class CountiesByPopulation extends Component {
-    constructor() {
-        super()
-
-        const ds = new ImmutableDataSource()
-
-        this.state = {
-            dataSource: ds.cloneWithRows(countries)
+const CountiesByPopulation = React.createClass({
+    getInitialState() {
+        return {
+            countries: countries,
         }
-    }
-
+    },
     componentDidMount() {
       setTimeout(() => {
-          this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(countries.pop())
-          })
+        this.setState({
+            countries: countries.pop()
+        })
       }, 3000)
-    }
 
+    },
+    renderRow(rowData, sectionID, rowID, highlightRow) {
+        return (
+            <Row
+                name={rowData.get('name')}
+                population={rowData.get('population')}
+            />
+        )
+    },
     render() {
         return (
-            <ListView style={styles.list}
-                dataSource={this.state.dataSource}
-                renderRow={renderRow} />
+            <MyListView
+                style={styles.list}
+                list={this.state.countries}
+                renderRow={renderRow}
+            />
         )
-    }
-}
+    },
+})
+
+module.exports = CountiesByPopulation
 ```
 
 Read my article about this package https://medium.com/@dalejefferson/react-native-immutablejs-listview-datasource-part-2-cf072df71c8#.ak3wgcnp6
